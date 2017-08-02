@@ -1,0 +1,24 @@
+<div ng-controller="PresencaController">
+  <table class="tabela-chamada"> 
+    <caption>Lista de presença</caption>
+    <thead>
+      <tr>
+        <th class="tr-id">Id</th>
+        <th class="tr-presenca"><div class="glyphicon glyphicon-ok "></div></th>
+        <th class="tr-nome">Nome do Aluno</th>
+        <th class="tr-faltas">Faltas</th>
+        <th>Presença</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr ng-repeat="aluno in chamada">
+        <td class="tr-id">{{ aluno.id }}</td>
+        <td class="tr-presenca"><input type="checkbox" id="checkbox{{aluno.id}}"
+          ng-click="marcarPresenca(aluno.id)" ng-checked="aluno.presenca"></td>
+        <td class="tr-nome">{{ aluno.nome }}</td>
+        <td class="tr-faltas">{{ aluno.qtdeFaltas }}</td>
+        <td>{{ aluno.presenca ? "Presente" : "Ausente" }}</td>
+      </tr>        
+    </tbody>
+  </table>
+</div>

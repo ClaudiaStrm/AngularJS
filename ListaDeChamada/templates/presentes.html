@@ -1,0 +1,22 @@
+<table class="tabela-chamada"> 
+  <caption>Lista de presentes</caption>
+  <thead>
+    <tr>
+      <th class="tr-id">Id</th>
+      <th class="tr-presenca"><div class="glyphicon glyphicon-ok "></div></th>
+      <th class="tr-nome">Nome do Aluno</th>
+      <th class="tr-faltas">Faltas</th>
+      <th>Presença</th>
+    </tr>
+  </thead>
+      
+  <tbody ng-controller="PresencaController">
+    <tr ng-repeat="aluno in chamada | filter: 'true' ">
+      <td class="tr-id">{{ aluno.id }}</td>
+      <td class="tr-presenca"><input type="checkbox" disabled></td>
+      <td class="tr-nome"> {{ aluno.nome }}</td>
+      <td class="tr-faltas"> {{ aluno.qtdeFaltas }}</td>
+      <td> {{ aluno.presenca ? "Presente" : "Ausente" }}</td>
+    </tr>        
+  </tbody>
+</table>

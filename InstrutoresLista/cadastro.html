@@ -1,0 +1,68 @@
+<div ng-controller="CadastroController">
+
+
+<hr>
+
+<h1>Cadastro de instrutores </h1>
+  <form name="cadastroForm" ng-submit="submitForm(cadastroForm.$valid)" ng-model="form" novalidate>
+  <hr>
+    <label class="left">Nome:</label>
+    <input class="right" type="text" ng-model="instrutor.nome" name="nome" ng-minlength="3" ng-maxlength="20" required>
+    <div ng-show="cadastroForm.$submitted || cadastroForm.nome.$touched">
+      <div ng-show="cadastroForm.nome.$error.required">Campo obrigatório.</div>
+      <div ng-show="cadastroForm.nome.$error.minlength">Mínimo 3 caracteres.</div>
+      <div ng-show="cadastroForm.nome.$error.maxlength">Máximo 20 caracteres.</div>
+    </div>
+
+
+
+    <label class="left">Sobrenome:</label>
+    <input class="right" type="text" ng-model="instrutor.sobrenome" name="sobrenome" ng-minlength="2" ng-maxlength="30" required>
+    <div ng-show="cadastroForm.$submitted || cadastroForm.sobrenome.$touched">        
+      <div ng-show="cadastroForm.sobrenome.$error.required">Campo obrigatório.</div>
+      <div ng-show="cadastroForm.sobrenome.$error.minlength">Mínimo 2 caracteres.</div>
+      <div ng-show="cadastroForm.sobrenome.$error.maxlength">Máximo 30 caracteres.</div>
+    </div>
+
+
+
+    <label class="left">E-mail:</label>
+    <input class="right" type="email" ng-model="instrutor.email" name="email" ng-change="verificarDuplicidade(instrutor.email)" required> 
+    <div ng-show="cadastroForm.$submitted || cadastroForm.email.$touched">
+      <span ng-show="cadastroForm.email.$error.required">Campo obrigatório.</span>
+      <span ng-show="cadastroForm.email.$error.email">Esse e-mail não é válido.</span>
+      <span ng-show="cadastroForm.email.$error.duplicado">E-mail já cadastrado.</span>
+    </div>
+
+
+    <label class="left">Idade:</label>
+    <input class="right" type="number" ng-model="instrutor.idade" name="idade" required 
+         ng-change="verificarIdade(instrutor.idade)" required>          
+    <div ng-show="cadastroForm.$submitted || cadastroForm.idade.$touched">
+      <span ng-show="cadastroForm.idade.$error.required">Campo obrigatório.</span>
+      <span ng-show="cadastroForm.idade.$error.valido">Esse valor não é válido.</span>
+    </div>
+
+    <label class="left"> Já deu aula:</label>
+    <input class="right check" type="checkbox" ng-model="instrutor.jaDeuAula">
+
+
+    <label class="left">Qual aula ministra:</label>
+    <select class="right" ng-model="instrutor.aula" ng-options="aula for aula in listaAulas"></select>    
+
+    <div class=" right butao">
+      <input  type="button" ng-click="limparForm()" value="Limpar" />
+      <input  type="submit" ng-disabled="cadastroForm.$invalid" ng-click="adicionarInstrutor(); limparForm()" value="Cadastrar" />
+    </div>
+  </form>
+
+
+
+<!--
+Nome (Texto - Obrigatório - 3 a 20 letras)
+Sobrenome (Texto - máximo 30 letras)
+Idade (Número - Obrigatório)
+Email (Obrigatório)
+Informar se já deu aula (Checkbox)
+Qual aula ele ministra (Select - lista de string de aulas)
+-->

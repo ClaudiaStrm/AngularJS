@@ -1,0 +1,22 @@
+<table class="table" ng-controller="InstrutoresController">
+  <caption>Instrutores</caption>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>E-mail</th>
+      <th>Já deu aula?</th>
+      <th>Aula(s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="instrutor in instrutores">
+      <td>{{ instrutor.nome }} {{instrutor.sobrenome}}</td>
+      <td>{{ instrutor.idade }}</td>
+      <td>{{ instrutor.email }}</td>
+      <td>{{ instrutor.jaDeuAula ? 'Sim' : 'Não'}}</td>
+      <td>{{ instrutor.aula }}</td>
+    </tr>
+    
+  </tbody>
+</table>

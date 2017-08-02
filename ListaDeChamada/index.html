@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Chamada</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/rotas.js"></script>
+
+  <!-- FAVICON -->
+
+  <link rel="apple-touch-icon" sizes="57x57" href="imagens/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="imagens/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="imagens/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="imagens/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="imagens/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="imagens/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="imagens/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="imagens/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="imagens/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="imagens/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="imagens/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon/favicon-16x16.png">
+  <link rel="manifest" href="imagens/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body ng-app="app">  
+
+  <div class="container">
+    <nav class="navbar  navbar-inverse navbar-fixed-top" id="nav">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li role="presentation" class="btn-lista ">
+            <a href="#!">Lista de Chamada</a>
+          </li>
+          <li role="presentation" class="btn-lista">
+            <a href="#!presentes">Lista de presentes</a>
+          </li>
+          <li role="presentation" class="btn-lista">
+            <a href="#!ausentes">Lista de ausentes</a>
+          </li>
+          <li role="presentation" ng-controller="AusentesController" class="btn-lista">
+            <a href="#!" ng-click="novaAula(chamada); qtdeAulas()">Nova Aula</a>
+          </li>
+          <li role="presentation" class="btn-lista">
+            <a href="#!mais-faltas">Mais faltas</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <hr>
+    
+    <ng-view></ng-view>
+  </div>
+</body>
+</html>

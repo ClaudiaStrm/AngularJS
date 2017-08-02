@@ -1,0 +1,47 @@
+/* * { border: 1px solid #000 } */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0px;
+  background-color: #dbdbdd;
+}
+
+form {
+  margin: 0 auto;
+  width: 70%;
+  align-content: center;
+  position: relative;
+
+}
+
+.left{
+  vertical-align: top;
+  text-align: right;
+  width: 25%;
+  font-weight: bold;
+  padding: 7px;
+  margin-top: 5px;
+}
+
+.right{
+  vertical-align: top;
+  text-align: left;
+  width: 70%;
+  margin-top: 5px;
+}
+
+input:not([type="checkbox"]), select{
+  height: 36px;
+  border-radius: 6px;
+}
+
+.check{
+}
+
+.butao{
+  margin: 0 auto;
+  width: 91.5%;
+  text-align: right;
+  position: relative;;
+}

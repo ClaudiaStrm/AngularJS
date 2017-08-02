@@ -1,0 +1,105 @@
+/* CSS base: https://codepen.io/dudleystorey/pen/Geprd */ 
+
+
+/* * { border: 1px solid #000 } */
+
+* {
+  box-sizing: border-box;
+}
+body { /* "./imagens/fundo.png" */
+   background: url("../imagens/fundo.png")
+}
+hr{ 
+  border: 0; 
+  height: 1px; 
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
+}
+#nav{
+  padding-left: 2%;
+}
+
+caption {
+  color: #eee;
+  font-size: 32px;
+}
+
+table.tabela-chamada, #nav {
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-weight: 100; 
+  background: #333; 
+  color: #fff;
+  border-radius: 5px; 
+  width: 60%;
+  border-color: black;
+  align-content: center;
+  position: relative;
+}
+table.tabela-chamada thead tr th, table.tabela-chamada tbody td { 
+  padding: 8px 15px 8px 15px; 
+  font-size: 14px;
+  text-align: center;
+}
+table.tabela-chamada thead tr th { 
+  font-weight: 600; 
+}
+table.tabela-chamada tbody td { 
+  font-size: 14px;
+  color: #444; 
+}
+table.tabela-chamada tbody tr:not(:last-child) { 
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;  
+}
+table.tabela-chamada tbody tr {
+  background-color: #eee;
+}
+table.tabela-chamada tbody tr:nth-child(odd) {
+   background-color: #dbdbdd;
+}
+/*botoes */
+
+.buttons {
+  padding-left: 22%;
+}
+.btn-lista{
+  background-color: #333;
+  color: #fff;
+}
+.btn-lista:hover, .btn-lista:focus {
+  background-color: #777;
+  color: #fff
+}
+
+/*linhas*/
+
+.tr-id {
+  width: 60px;
+}
+.tr-presenca div{
+  text-align: center;
+}
+.tr-nome {
+  width: 200px;
+}
+.tr-faltas{
+  width: 70px;
+}
+.tr-faltas div{
+  text-align: center;
+}
+
+/* div alunos com mais faltas */
+
+.alunos-faltantes{
+  margin: 0 auto;
+  font-family: sans-serif;
+  background: #333; 
+  color: #dbdbdd;
+  border-radius: 5px; 
+  width: 50%;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+}

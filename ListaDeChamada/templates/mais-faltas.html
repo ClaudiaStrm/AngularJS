@@ -1,0 +1,27 @@
+<div ng-controller="FaltantesController">
+
+
+  <div class="alunos-faltantes" ng-if="qtdeAulas < 5">
+    {{ mensagem }}
+  </div>
+
+  <table class="tabela-chamada" ng-if="qtdeAulas > 4"> 
+    <caption>Alunos com mais faltas</caption>
+      <thead>
+        <tr>
+          <th class="tr-id">Id</th>
+          <th class="tr-presenca"><div class="glyphicon glyphicon-ok "></div></th>
+          <th class="tr-nome">Nome do Aluno</th>
+          <th class="tr-faltas">Faltas</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="aluno in chamada | orderBy: '-qtdeFaltas' | limitTo: 5">
+        <td class="tr-id">{{ aluno.id }}</td>
+        <td class="tr-presenca"><input type="checkbox" disabled></td>
+        <td class="tr-nome"> {{ aluno.nome }}</td>
+        <td class="tr-faltas"> {{ aluno.qtdeFaltas }}</td>
+      </tr>               
+    </tbody>
+  </table>
+</div>
