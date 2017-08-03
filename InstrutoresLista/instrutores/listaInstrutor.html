@@ -1,4 +1,4 @@
-<table class="table" ng-controller="InstrutoresController">
+<table class="table" ng-controller="ListaInstrutorController">
   <caption>Instrutores</caption>
   <thead>
     <tr>
@@ -15,7 +15,11 @@
       <td>{{ instrutor.idade }}</td>
       <td>{{ instrutor.email }}</td>
       <td>{{ instrutor.jaDeuAula ? 'Sim' : 'Não'}}</td>
-      <td>{{ instrutor.aula }}</td>
+      <td>
+        <ul class="ul-instrutor">
+          <li ng-repeat="aula in instrutor.aula | orderBy: 'nome'">{{ aula.nome }}</li>
+        </ul>
+      </td>
     </tr>
     
   </tbody>

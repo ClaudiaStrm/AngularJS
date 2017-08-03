@@ -1,0 +1,86 @@
+/* * { border: 1px solid #000 } */
+
+@import url('https://fonts.googleapis.com/css?family=Lobster|Raleway');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0px;
+  background: url("../imagens/fundo.png");
+  font-family: 'Raleway', sans-serif;
+}
+
+form {
+  margin: 0 auto;
+  width: 70%;
+  align-content: center;
+  position: relative;
+  color: #FFFAFF;
+  /* #3E92CC  */
+  background-color: #1E1B18;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+legend{
+  color: #FF0080;
+  font-family: 'Lobster', monospace;
+  font-size: 28px;
+  padding: 5px 0 5px 20px;
+}
+
+input:not([type="submit"]), select {
+  color: #2B2D42;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border: 1px solid #FFFAFF;
+  box-shadow:0 0 10px #FFFAFF;
+}
+
+.left{
+  vertical-align: top;
+  text-align: right;
+  width: 25%;
+  font-weight: bold;
+  padding: 7px;
+  margin-top: 5px;
+}
+
+.right{
+  vertical-align: top;
+  text-align: left;
+  width: 70%;
+  margin-top: 5px;
+}
+
+.error{
+  position: relative;
+  margin-left: 25.5%;
+  width: 70%;
+  color: #FF0080;
+  background-color: #FFD8E2;
+  margin: 1px solid #FF0080;
+  padding: 5px 0 5px 20px;
+  border-radius: 6px;
+}
+
+input:not([type="checkbox"]), select{
+  height: 36px;
+  border-radius: 6px;
+}
+
+.check{
+}
+
+.butao{
+  margin: 0 auto;
+  width: 91.5%;
+  text-align: right;
+  position: relative;;
+}
