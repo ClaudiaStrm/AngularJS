@@ -8,7 +8,7 @@
     <legend>Dados para cadastro de instrutores</legend>
     <label class="left">Nome:</label>
     <input class="right" type="text" ng-model="instrutor.nome" name="nome" ng-minlength="3" ng-maxlength="20" required>
-    <div ng-show="cadastroForm.$submitted || cadastroForm.nome.$touched">
+    <div ng-show="cadastroForm.nome.$touched">
       <div class="error" ng-show="cadastroForm.nome.$error.required">Campo obrigatório.</div>
       <div class="error" ng-show="cadastroForm.nome.$error.minlength">Mínimo 3 caracteres.</div>
       <div class="error" ng-show="cadastroForm.nome.$error.maxlength">Máximo 20 caracteres.</div>

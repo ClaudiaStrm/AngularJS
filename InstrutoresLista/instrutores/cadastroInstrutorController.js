@@ -5,11 +5,6 @@ app.controller('CadastroInstrutorController', function($scope, $rootScope) {
     $scope.instrutores = $rootScope.instrutores;
     $scope.listaAulas = $rootScope.aula;
 
-    $scope.cadastroForm = {};
-    //$scope.instrutor.nome = {};
-    // $scope.instrutor.sobrenome = '';
-    // $scope.instrutor.idade = '';
-    // $scope.instrutor.email = '';
 
     $scope.submitForm = function(isValid) {
     };
@@ -46,11 +41,8 @@ app.controller('CadastroInstrutorController', function($scope, $rootScope) {
     }
 
     $scope.limparForm = function(){
-        $scope.cadastroForm = {};
-        $scope.instrutor.nome = '';
-        $scope.instrutor.sobrenome = '';
-        $scope.instrutor.email = '';
-        $scope.instrutor.idade = '';
+        delete $scope.instrutor;
+        $scope.cadastroForm.$setPristine();
         $scope.cadastroForm.$setUntouched();
     }
 });
