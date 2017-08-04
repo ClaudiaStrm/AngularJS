@@ -2,7 +2,8 @@
 
 
 <hr>
-  <form name="cadastroForm" ng-submit="submitForm(cadastroForm.$valid)" ng-model="form" novalidate>
+  <div class="success" ng-style="hiddenSuccess">Instrutor cadastrado com sucesso <span class="ok-success" ng-click="hiddenSuccess={'display': 'hidden'}">OK</span></div>
+  <form name="cadastroForm" id="cadastroForm" ng-submit="submitForm(cadastroForm.$valid)" ng-model="form" novalidate>
   <fieldset>
     <legend>Dados para cadastro de instrutores</legend>
     <label class="left">Nome:</label>
@@ -17,7 +18,7 @@
 
     <label class="left">Sobrenome:</label>
     <input class="right" type="text" ng-model="instrutor.sobrenome" name="sobrenome" ng-minlength="2" ng-maxlength="30" required>
-    <div ng-show="cadastroForm.$submitted || cadastroForm.sobrenome.$touched">        
+    <div ng-show="cadastroForm.sobrenome.$touched">        
       <div class="error" ng-show="cadastroForm.sobrenome.$error.required">Campo obrigatório.</div>
       <div class="error" ng-show="cadastroForm.sobrenome.$error.minlength">Mínimo 2 caracteres.</div>
       <div class="error" ng-show="cadastroForm.sobrenome.$error.maxlength">Máximo 30 caracteres.</div>
@@ -27,7 +28,7 @@
 
     <label class="left">E-mail:</label>
     <input class="right" type="email" ng-model="instrutor.email" name="email" ng-change="verificarDuplicidade(instrutor.email)" required> 
-    <div ng-show="cadastroForm.$submitted || cadastroForm.email.$touched">
+    <div ng-show="cadastroForm.email.$touched">
       <div class="error" ng-show="cadastroForm.email.$error.required">Campo obrigatório.</div>
       <div class="error" ng-show="cadastroForm.email.$error.email">Esse e-mail não é válido.</div>
       <div class="error" ng-show="cadastroForm.email.$error.duplicado">E-mail já cadastrado.</div>
@@ -37,7 +38,7 @@
     <label class="left">Idade:</label>
     <input class="right" type="number" ng-model="instrutor.idade" name="idade" required 
          ng-change="verificarIdade(instrutor.idade)" required>          
-    <div ng-show="cadastroForm.$submitted || cadastroForm.idade.$touched">
+    <div ng-show="cadastroForm.idade.$touched">
       <div class="error" ng-show="cadastroForm.idade.$error.required">Campo obrigatório.</div>
       <div class="error" ng-show="cadastroForm.idade.$error.valido">Esse valor não é válido.</div>
     </div>
@@ -50,9 +51,9 @@
     <select class="right" ng-model="instrutor.aula" ng-options="aula.nome for aula in listaAulas | orderBy:'nome' track by aula.nome" multiple></select>  
 
     </fieldset>
-    <div class=" right butao">
-      <input type="submit" ng-click="limparForm()" value="Limpar">
-      <input type="submit" ng-disabled="cadastroForm.$invalid" ng-click="adicionarInstrutor(); limparForm()" value="Cadastrar">
+    <div class="right left-btn">
+      <input type="submit" class=" botao" ng-click="limparForm()" value="Limpar">
+      <input type="submit" class=" botao" ng-disabled="cadastroForm.$invalid" ng-click="adicionarInstrutor(); limparForm(); hiddenSuccess={'display': 'block'}" value="Cadastrar">
     </div>
   </form>
 

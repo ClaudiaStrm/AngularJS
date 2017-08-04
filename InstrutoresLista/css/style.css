@@ -16,8 +16,7 @@ form {
   align-content: center;
   position: relative;
   color: #FFFAFF;
-  /* #3E92CC  */
-  background-color: #1E1B18;
+  background-color: #281E1E;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -29,7 +28,7 @@ legend{
   padding: 5px 0 5px 20px;
 }
 
-input:not([type="submit"]), select {
+form input:not([type="submit"]), select {
   color: #2B2D42;
   padding: 12px 20px;
   margin: 8px 0;
@@ -37,7 +36,7 @@ input:not([type="submit"]), select {
   border-radius: 6px;
 }
 
-input:focus, select:focus {
+form input:focus, select:focus {
   outline: none;
   border: 1px solid #FFFAFF;
   box-shadow:0 0 10px #FFFAFF;
@@ -65,10 +64,43 @@ input:focus, select:focus {
   width: 70%;
   color: #FF0080;
   background-color: #FFD8E2;
-  margin: 1px solid #FF0080;
   padding: 5px 0 5px 20px;
   border-radius: 6px;
 }
+
+.success{
+
+  margin: 0 auto;
+  width: 70%;
+  color: #1c3738;
+  font-size: 16px;
+  margin-bottom: 10px;
+  background-color: #28502E;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+  color: #DEE5E5;
+  padding: 8px 0 8px 20px;
+  display: none;
+}
+
+.ok-success{
+  border: 1px solid #281B2E;
+  padding: 7px;
+  margin: 4px 5px;
+  cursor: pointer;
+  margin-left: 20px;
+  border-radius: 6px;
+}
+
+.ok-success:hover{
+  background-color: #17301C;
+}
+
+.ok-success:active{
+  background-color: #002500;
+}
+
 
 input:not([type="checkbox"]), select{
   height: 36px;
@@ -78,9 +110,19 @@ input:not([type="checkbox"]), select{
 .check{
 }
 
-.butao{
+.left-btn{
   margin: 0 auto;
   width: 91.5%;
   text-align: right;
   position: relative;;
+}
+
+.botao {
+  background-color: #28502E;
+  border: 1px solid #281B2E;
+  padding: 7px;
+  margin: 2px 2px;
+  cursor: pointer;
+  margin-left: 5px;
+  border-radius: 6px;
 }
