@@ -5,21 +5,22 @@ function listaAulas(){
       {id: 2, nome: 'HTML/CSS', emAndamento: false},
       {id: 3, nome: 'Javascript', emAndamento: false},
       {id: 4, nome: 'AngularJS', emAndamento: false}
-];
+    ];
     return aulas
 }
 function listaInstrutores(){
     let instrutores = [
       { 
+        id: 1,
         nome: 'Zeca',
         sobrenome: 'Diabo',
         idade: 30,
         email: 'zequinha@hell.com',
         jaDeuAula: true,
-        aula: [listaAulas()[0], listaAulas()[3]]
-      }
+        aula: [listaAulas()[0], listaAulas()[3]], 
+        urlFoto: '../imagens/imgPadrao.png'
+      },
+      
     ];
     return instrutores
 }
-
-

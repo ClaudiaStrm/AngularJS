@@ -1,8 +1,55 @@
-<div ng-controller="CadastroInstrutorController">
+<div ng-controller="instrutorController" id="lista">
+  <table>
+    <caption>Instrutores</caption>      
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>E-mail</th>
+        <th>Já deu aula?</th>
+        <th>Aula(s)</th>
+        <th>Foto</th>
+        <th>Editar/Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="instrutor in instrutores">
+        <td>{{ instrutor.nome }} {{instrutor.sobrenome}}</td>
+        <td>{{ instrutor.idade }}</td>
+        <td>{{ instrutor.email }}</td>
+        <td>{{ instrutor.jaDeuAula ? 'Sim' : 'Não'}}</td>
+        <td>
+          <ul class="ul-instrutor">
+            <li ng-repeat="aula in instrutor.aula | orderBy: 'nome'">{{ aula.nome }}</li>
+          </ul>
+        </td>
 
+        <td>
+          <img src="{{instrutor.urlFoto}}" width="50px" height="50px" alt="">
+        </td>
 
-<hr>
-  <div class="success" ng-style="hiddenSuccess">Instrutor cadastrado com sucesso <span class="ok-success" ng-click="hiddenSuccess={'display': 'hidden'}">OK</span></div>
+        <td>
+          <span ng-click="editar(instrutor.id)" class="editar">Editar</span> / 
+          <span ng-click="excluir(instrutor.id)" class="excluir">Excluir</span>
+        </td>
+
+      </tr>  
+      <tr>
+        <td colspan="7"><a ng-href="#cadastro" class="btn-cadastrar">Cadastrar instrutor</a></td>
+      </tr>  
+    </tbody>
+  </table>
+
+  <div class="ancoras">
+    <a ng-href="#!instrutores">↑ Voltar para o topo</a>
+  </div>
+  
+
+<div class="cadastro" ng-style="cadastroInstrutor" id="cadastro">
+
+  <div class="success" ng-style="hiddenSuccess">Instrutor cadastrado com sucesso <span class="ok-success" ng-click="hiddenSuccess={'display': 'hidden'}">OK</span>
+  </div>
+
   <form name="cadastroForm" id="cadastroForm" ng-submit="submitForm(cadastroForm.$valid)" ng-model="form" novalidate>
   <fieldset>
     <legend>Dados para cadastro de instrutores</legend>
@@ -15,7 +62,6 @@
     </div>
 
 
-
     <label class="left">Sobrenome:</label>
     <input class="right" type="text" ng-model="instrutor.sobrenome" name="sobrenome" ng-minlength="2" ng-maxlength="30" required>
     <div ng-show="cadastroForm.sobrenome.$touched">        
@@ -23,7 +69,6 @@
       <div class="error" ng-show="cadastroForm.sobrenome.$error.minlength">Mínimo 2 caracteres.</div>
       <div class="error" ng-show="cadastroForm.sobrenome.$error.maxlength">Máximo 30 caracteres.</div>
     </div>
-
 
 
     <label class="left">E-mail:</label>
@@ -43,27 +88,28 @@
       <div class="error" ng-show="cadastroForm.idade.$error.valido">Esse valor não é válido.</div>
     </div>
 
+
     <label class="left"> Já deu aula:</label>
     <input class="right check" type="checkbox" ng-model="instrutor.jaDeuAula">
 
 
     <label class="left">Qual aula ministra:</label>
-    <select class="right" ng-model="instrutor.aula" ng-options="aula.nome for aula in listaAulas | orderBy:'nome' track by aula.nome" multiple></select>  
+    <select class="right option" ng-model="instrutor.aula" ng-options="aula.nome for aula in listaAulas | orderBy:'nome' track by aula.nome" multiple></select>  
+
+    <label class="left">Imagem:</label>
+    <input class="right" type="text" ng-model="instrutor.urlFoto" name="instrutor.urlFoto">          
 
     </fieldset>
-    <div class="right left-btn">
+
+    <div class="right btns" id="cadastro">     
       <input type="submit" class=" botao" ng-click="limparForm()" value="Limpar">
       <input type="submit" class=" botao" ng-disabled="cadastroForm.$invalid" ng-click="adicionarInstrutor(); limparForm(); hiddenSuccess={'display': 'block'}" value="Cadastrar">
     </div>
   </form>
 
+  <div class="ancoras">
+    <a ng-href="#!instrutores">↑ Voltar para o topo</a>
+    <a ng-href="#lista">↑ Voltar para lista</a> 
+  </div>
 
-
-<!--
-Nome (Texto - Obrigatório - 3 a 20 letras)
-Sobrenome (Texto - máximo 30 letras)
-Idade (Número - Obrigatório)
-Email (Obrigatório)
-Informar se já deu aula (Checkbox)
-Qual aula ele ministra (Select - lista de string de aulas)
--->
+</div>

@@ -1,24 +1,83 @@
-/* * { border: 1px solid #000 } */
-
 @import url('https://fonts.googleapis.com/css?family=Lobster|Raleway');
 
-* { box-sizing: border-box; }
+/*
+* { border: 1px solid #000 } 
+*/
+
+* { 
+  box-sizing: border-box; 
+  margin: 0 auto;
+  }
+
 
 body {
-  margin: 0px;
   background: url("../imagens/fundo.png");
   font-family: 'Raleway', sans-serif;
 }
 
+/* BARRA DE NAVEGAÇÃO */
+
+.cadastro{
+  padding-top: 40px;
+}
+
+ul.nav{
+  /*position: fixed;*/
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+li.btn-nav{
+    float: left;
+}
+
+li.btn-nav a {
+  display: block;
+  color: #FFFAFF;
+  text-align: center;
+  padding: 10px 16px;
+  margin: 10px 5px 0 5px ;
+  background-color: #281E1E;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+li.btn-nav a:hover {
+  color: #FF0080;
+  background-color: #FFF3F3;
+}
+
+li.btn-nav a:active {
+  background-color: #281E1E;
+}
+
+li.btn-nav a:focus {
+  background-color: #281E1E;
+  color: #FF0080;
+}
+
+
+
+div.conteudo{
+position: relative;
+}
+
+hr.dot {
+  border-top: 1px solid #FFFAFF;  
+}
+
+/*FORMULÁRIO*/
+
 form {
-  margin: 0 auto;
-  width: 70%;
+  width: 80%;
   align-content: center;
   position: relative;
   color: #FFFAFF;
   background-color: #281E1E;
-  border-radius: 5px;
+  border-radius: 10px 10px 0 0;
   font-size: 16px;
+  padding-bottom: 10px;
 }
 
 legend{
@@ -42,6 +101,12 @@ form input:focus, select:focus {
   box-shadow:0 0 10px #FFFAFF;
 }
 
+input:not([type="checkbox"]), select{
+  height: 36px;
+  border-radius: 6px;
+}
+
+/*ALINHA AS LABELS à ESQUERDA*/
 .left{
   vertical-align: top;
   text-align: right;
@@ -50,7 +115,7 @@ form input:focus, select:focus {
   padding: 7px;
   margin-top: 5px;
 }
-
+/*ALINHA OS INPUTS À DIREITA */
 .right{
   vertical-align: top;
   text-align: left;
@@ -58,6 +123,7 @@ form input:focus, select:focus {
   margin-top: 5px;
 }
 
+/* DIV DE ERRO */
 .error{
   position: relative;
   margin-left: 25.5%;
@@ -68,10 +134,10 @@ form input:focus, select:focus {
   border-radius: 6px;
 }
 
-.success{
+/* MENSAGEM QUANDO O CADASTRO FOI REALIZADO */
 
-  margin: 0 auto;
-  width: 70%;
+.success{
+  width: 80%;
   color: #1c3738;
   font-size: 16px;
   margin-bottom: 10px;
@@ -102,16 +168,11 @@ form input:focus, select:focus {
 }
 
 
-input:not([type="checkbox"]), select{
-  height: 36px;
-  border-radius: 6px;
-}
-
 .check{
 }
 
-.left-btn{
-  margin: 0 auto;
+/*BOTÕES DO FIM DO FORMULÁRIO */
+.btns{
   width: 91.5%;
   text-align: right;
   position: relative;;
@@ -126,3 +187,125 @@ input:not([type="checkbox"]), select{
   margin-left: 5px;
   border-radius: 6px;
 }
+.botao:hover{
+  box-shadow: 1px 1px 20px 1px #458e50 inset;
+}
+
+.botao:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.botao:focus{
+  box-shadow: none;
+  border: 1px solid #458e50;
+}
+
+.ancoras{
+  width: 80%;
+  text-align: right;
+  padding: 5px;
+  background-color: #281E1E;
+  border-top: 1px solid #ccc;
+}
+
+.ancoras a{
+  color: #FF0080;
+  text-decoration: none;
+  font-weight: 800px;
+  padding: 5px;
+}
+
+.ancoras a:hover {
+  text-shadow: 1px 1px 30px #FF0080;
+}
+
+
+/* TABELA */
+ table caption{
+  color: #FF0080;
+  font-family: 'Lobster', monospace;
+  font-size: 28px;
+  padding: 5px 0 5px 20px;
+  background: #281E1E; 
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid #FFFAFF; 
+
+ }
+
+table{
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-weight: 100; 
+  color: #FFFAFF;
+  width: 80%;
+  align-content: center;
+  position: relative;
+  background: #281E1E;
+}
+thead tr th, tbody td { 
+  padding: 8px 15px 8px 15px; 
+  font-size: 14px;
+  text-align: center;
+}
+
+tbody tr td ul {
+  list-style-type: none;
+  padding: 0;
+}
+tbody tr td ul li {
+  padding-top: 5px;
+}
+tbody tr {
+  background-color: #FFFAFF;
+  color: #281E1E;
+}
+tbody tr:nth-child(odd) {
+  background-color: #FFF3F3;
+  color: #281E1E;   
+}
+
+tbody tr td span {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+tbody tr td span.editar {
+  color: #00cc00;  
+}
+tbody tr td span.excluir {
+  color: #FF0080;
+}
+
+.btn-cadastrar{
+  display: block;
+  color: #FF0080;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px 16px;
+  background-color: #281E1E;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.btn-cadastrar:hover{
+  color: #FF0080;
+  text-shadow: 1px 1px 80px #FF0080;
+  text-decoration: none;
+}
+
+
+
+/*
+.btn-index{
+  position: ;
+
+  background-color: #28502E;
+  border: 1px solid #281B2E;
+  padding: 15px;
+  margin: 2px 2px;
+  cursor: pointer;
+  margin-left: 5px;
+
+}*/

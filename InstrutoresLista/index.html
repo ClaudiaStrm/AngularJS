@@ -13,19 +13,28 @@
   <script src="./js/module.js"></script>
   <script src="./js/routes.js"></script>
   <script src="./js/main.js"></script>
-  <script src="./instrutores/cadastroInstrutorController.js"></script>
-  <script src="./instrutores/listaInstrutorController.js"></script>
+  <script src="./instrutores/instrutorController.js"></script>
 
 </head>
 <body ng-app="app">
 <div class="container">
-  <div class="row">
 
-    <a href="#!instrutores" class="btn btn-lista">Lista de Instrutores</a>
-    <a href="#!cadastro" class="btn btn-lista">Cadastro de Instrutores</a>
+  <nav>
+    <ul class="nav">
+      <li class="btn-nav"><a href="#!instrutores/#lista" class="btn-index">Lista de Instrutores</a></li>
+      <li class="btn-nav"><a href="#!instrutores/#cadastro" class="btn-index">Cadastro de Instrutores</a></li>
+      <li class="btn-nav"><a href="#!" class="btn-index">Lista de Aulas</a></li>
+      <li class="btn-nav"><a href="#!" class="btn-index">Cadastro de Aulas</a></li>
+    </ul>
+  </nav>
 
+  <hr class="dot">
+
+
+  <div class="conteudo">  
     <ng-view></ng-view>
   </div>
+
 </div>
 </body>
 </html>
