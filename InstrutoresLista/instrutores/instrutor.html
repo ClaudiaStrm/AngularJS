@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="instrutor in instrutores">
-        <td>{{ instrutor.nome }} {{instrutor.sobrenome}}</td>
+        <td>{{ instrutor.id}} {{ instrutor.nome }} {{instrutor.sobrenome}}</td>
         <td>{{ instrutor.idade }}</td>
         <td>{{ instrutor.email }}</td>
         <td>{{ instrutor.jaDeuAula ? 'Sim' : 'Não'}}</td>
@@ -54,7 +54,7 @@
   <fieldset>
     <legend>Dados para cadastro de instrutores</legend>
     <label class="left">Nome:</label>
-    <input class="right" type="text" ng-model="instrutor.nome" name="nome" ng-minlength="3" ng-maxlength="20" required>
+    <input class="right" type="text" ng-model="instrutorNome" name="nome" ng-minlength="3" ng-maxlength="20" required  >
     <div ng-show="cadastroForm.nome.$touched">
       <div class="error" ng-show="cadastroForm.nome.$error.required">Campo obrigatório.</div>
       <div class="error" ng-show="cadastroForm.nome.$error.minlength">Mínimo 3 caracteres.</div>
@@ -63,7 +63,7 @@
 
 
     <label class="left">Sobrenome:</label>
-    <input class="right" type="text" ng-model="instrutor.sobrenome" name="sobrenome" ng-minlength="2" ng-maxlength="30" required>
+    <input class="right" type="text" ng-model="instrutorSobrenome" name="sobrenome" ng-minlength="2" ng-maxlength="30" required>
     <div ng-show="cadastroForm.sobrenome.$touched">        
       <div class="error" ng-show="cadastroForm.sobrenome.$error.required">Campo obrigatório.</div>
       <div class="error" ng-show="cadastroForm.sobrenome.$error.minlength">Mínimo 2 caracteres.</div>
@@ -72,7 +72,7 @@
 
 
     <label class="left">E-mail:</label>
-    <input class="right" type="email" ng-model="instrutor.email" name="email" ng-change="verificarDuplicidade(instrutor.email)" required> 
+    <input class="right" type="email" ng-model="instrutorEmail" name="email" ng-change="verificarDuplicidade(instrutor.email)" required> 
     <div ng-show="cadastroForm.email.$touched">
       <div class="error" ng-show="cadastroForm.email.$error.required">Campo obrigatório.</div>
       <div class="error" ng-show="cadastroForm.email.$error.email">Esse e-mail não é válido.</div>
@@ -81,8 +81,8 @@
 
 
     <label class="left">Idade:</label>
-    <input class="right" type="number" ng-model="instrutor.idade" name="idade" required 
-         ng-change="verificarIdade(instrutor.idade)" required>          
+    <input class="right" type="number" ng-model="instrutorIdade" name="idade" required 
+         ng-change="verificarIdade(instrutorIdade)" required>          
     <div ng-show="cadastroForm.idade.$touched">
       <div class="error" ng-show="cadastroForm.idade.$error.required">Campo obrigatório.</div>
       <div class="error" ng-show="cadastroForm.idade.$error.valido">Esse valor não é válido.</div>
@@ -90,20 +90,20 @@
 
 
     <label class="left"> Já deu aula:</label>
-    <input class="right check" type="checkbox" ng-model="instrutor.jaDeuAula">
+    <input class="right check" type="checkbox" ng-model="instrutorDeuAula">
 
 
     <label class="left">Qual aula ministra:</label>
-    <select class="right option" ng-model="instrutor.aula" ng-options="aula.nome for aula in listaAulas | orderBy:'nome' track by aula.nome" multiple></select>  
+    <select class="right option" ng-model="instrutorAula" ng-options="aula.nome for aula in listaAulas | orderBy:'nome' track by aula.nome" multiple></select>  
 
     <label class="left">Imagem:</label>
-    <input class="right" type="text" ng-model="instrutor.urlFoto" name="instrutor.urlFoto">          
+    <input class="right" type="text" ng-model="instrutorUrlFoto" name="instrutor.urlFoto">          
 
     </fieldset>
 
     <div class="right btns" id="cadastro">     
       <input type="submit" class=" botao" ng-click="limparForm()" value="Limpar">
-      <input type="submit" class=" botao" ng-disabled="cadastroForm.$invalid" ng-click="adicionarInstrutor(); limparForm(); hiddenSuccess={'display': 'block'}" value="Cadastrar">
+      <input type="submit" class=" botao" ng-disabled="cadastroForm.$invalid" ng-click="adicionarInstrutor(instrutorID); limparForm(); hiddenSuccess={'display': 'block'}" value="Salvar">
     </div>
   </form>
 

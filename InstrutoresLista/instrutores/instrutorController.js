@@ -5,6 +5,11 @@ app.controller('instrutorController', function($scope, $rootScope) {
     $scope.instrutores = $rootScope.instrutores;
     $scope.listaAulas = $rootScope.aula;
 
+    $scope.getID = function() {
+        let index = $scope.instrutores.length - 1;
+        ultimoID = $scope.instrutores[index].id + 1;
+        return ultimoID;
+    };
 
 
     $scope.submitForm = function(isValid) {
@@ -28,30 +33,51 @@ app.controller('instrutorController', function($scope, $rootScope) {
         }    
     };
 
-    $scope.adicionarInstrutor = function(){  
+    $scope.adicionarInstrutor = function(id){  
+        id = id || -1;
+        alert(id);
+        if (id !== -1){
+
+        return
+
+        } else {
         $scope.formValido = false;      
         novoInstrutor = {
-            id: 0,
-            nome: $scope.instrutor.nome,
-            sobrenome: $scope.instrutor.sobrenome,
-            idade: $scope.instrutor.idade,
-            email: $scope.instrutor.email,
-            jaDeuAula: $scope.instrutor.jaDeuAula || false,
-            aula: $scope.instrutor.aula,
-            urlFoto: $scope.instrutor.urlFoto || '../imagens/imgPadrao.png',
-        }; 
+            id: $scope.getID(),
+            nome: $scope.instrutorNome,
+            sobrenome: $scope.instrutorSobrenome,
+            idade: $scope.instrutorIdade,
+            email: $scope.instrutorEmail,
+            jaDeuAula: $scope.instrutorDeuAula || false,
+            aula: $scope.instrutorAula,
+            urlFoto: $scope.instrutorUrlFoto || '../imagens/imgPadrao.png',
+        };
+
         $rootScope.instrutores.push(novoInstrutor);
         console.log($rootScope.instrutores)
+        }
     }
 
     $scope.limparForm = function(){
-        delete $scope.instrutor;
+        delete $scope.instrutorID;
+        delete $scope.instrutorNome;
+        delete $scope.instrutorSobrenome;
+        delete $scope.instrutorEmail;
+        delete $scope.instrutorIdade;
+        delete $scope.instrutorUrlFoto;
         $scope.cadastroForm.$setPristine();
         $scope.cadastroForm.$setUntouched();
     }
 
     $scope.editar = function(id){
-        alert("ID:" + id)
+        let editarInstrutor = $scope.instrutores.filter(instrutor => instrutor.id == id);
+        $scope.instrutorID = editarInstrutor[0].id;
+        $scope.instrutorNome = editarInstrutor[0].nome;
+        $scope.instrutorSobrenome = editarInstrutor[0].sobrenome;
+        $scope.instrutorEmail = editarInstrutor[0].email;
+        $scope.instrutorIdade = editarInstrutor[0].idade;
+        $scope.instrutorUrlFoto = editarInstrutor[0].urlFoto;
+        alert($scope.instrutorID)
     }
 
     $scope.excluir = function(id){

@@ -8,6 +8,7 @@ function listaAulas(){
     ];
     return aulas
 }
+
 function listaInstrutores(){
     let instrutores = [
       { 
@@ -20,7 +21,7 @@ function listaInstrutores(){
         aula: [listaAulas()[0], listaAulas()[3]], 
         urlFoto: '../imagens/imgPadrao.png'
       },
-      
     ];
     return instrutores
 }
+
