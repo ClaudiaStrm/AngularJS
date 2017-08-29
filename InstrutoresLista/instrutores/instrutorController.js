@@ -35,7 +35,6 @@ app.controller('instrutorController', function($scope, $rootScope) {
 
     $scope.adicionarInstrutor = function(id){  
         id = id || -1;
-        alert(id);
         if (id !== -1){
 
         return
@@ -77,7 +76,6 @@ app.controller('instrutorController', function($scope, $rootScope) {
         $scope.instrutorEmail = editarInstrutor[0].email;
         $scope.instrutorIdade = editarInstrutor[0].idade;
         $scope.instrutorUrlFoto = editarInstrutor[0].urlFoto;
-        alert($scope.instrutorID)
     }
 
     $scope.excluir = function(id){

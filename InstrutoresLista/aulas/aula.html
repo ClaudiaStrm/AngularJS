@@ -1,0 +1,22 @@
+<div ng-controller="aulaController" id="lista-aulas">
+<table>
+	<caption>Aulas</caption>
+	<thead>
+		<tr>
+			<th>Nome da aula</th>
+			<th>Em andamento</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="aula in listaAulas">
+			<td> {{ aula.nome }}</td>
+			<td> {{ aula.emAndamento ? 'Sim' : 'Não' }} </td>
+			<td> 
+				<span>Editar </span>/
+				<span>Excluir</span>
+			</td>
+		</tr>
+	</tbody>
+</table>
+	
+</div>
